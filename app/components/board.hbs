@@ -1,1 +1,26 @@
-{{yield}}
+<div style="display: flex;flex-direction: row;flex-wrap: nowrap;">
+  <canvas id="board_drawer" style="background: #50577A;" {{did-insert this.initDrawer}}></canvas>
+  <div style="flex-grow: 1;background: #6f42c1" id="drawing_tool_panel" >
+    <span style="text-align: center" class="tools_panel_title">Tools</span>
+    <div class="tools_panel">
+      <table style="border: #372a4d" class="table table-borderless">
+        <tbody>
+        {{#each this.ToolsSet as |tools|}}
+          <tr>
+          {{#each tools as |tool|}}
+            <td >
+              <div style="cursor: pointer!important;" class="w-100 d-flex flex-column flex-nowrap">
+                <span>{{tool.icon}}</span>
+                <span>{{tool.name}}</span>
+              </div>
+            </td>
+          {{/each}}
+          </tr>
+        {{/each}}
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
