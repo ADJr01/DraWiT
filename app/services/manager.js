@@ -13,18 +13,19 @@ export default class ManagerService extends Service {
     toolSet: [[{
       name: 'pencil',
       icon: 'pencil.svg',
-      event:{
-
-      }
     },
       {
       name: 'Eraser',
       icon: 'eraser.svg',
-      event:{
-
-      }
     }]],
     selectedTool: 'pencil',
   };
+  @tracked board = null;
+
+  @action
+  async __init__(board) {
+    this.board = board;
+    this.board.style.cursor = `url('/asset/pencil.svg'), pointer;`;
+  }
 
 }

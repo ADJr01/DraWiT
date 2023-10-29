@@ -33,6 +33,7 @@ export default class BoardComponent extends Component {
     }
     this.board = board;
     this.onResize();
+    this.manager.__init__(this.board);
     window.addEventListener('resize', _=>this.onResize());
   }
 
