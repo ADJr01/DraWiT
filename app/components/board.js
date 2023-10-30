@@ -36,6 +36,9 @@ export default class BoardComponent extends Component {
     this.manager.__init__(this.board);
     window.addEventListener('resize', _=>this.onResize());
   }
+  @action onSwitchTool(tool){
+    this.manager.switchDrawingTool(tool);
+  }
 
   @action onResize(){
     const TotalWidth = window.innerWidth;
