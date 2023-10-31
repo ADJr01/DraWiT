@@ -9,7 +9,7 @@
           <tr>
           {{#each tools as |tool|}}
             <td >
-              <div style="cursor: pointer!important;" class="w-100 d-flex flex-column flex-nowrap" {{on 'click' this.onSwitchTool}}>
+              <div style="cursor: pointer!important;" class="w-100 d-flex flex-column flex-nowrap" {{on 'click' (fn this.onSwitchTool tool.name)}}>
                 <span>{{tool.icon}}</span>
                 <span>{{tool.name}}</span>
               </div>

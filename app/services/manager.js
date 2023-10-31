@@ -11,14 +11,14 @@ export default class ManagerService extends Service {
     toolPanelWidth: 0,
     toolPanelHeight: 0,
     toolSet: [[{
-      name: 'pencil',
+      name: 'Pencil',
       icon: 'pencil.svg',
     },
       {
       name: 'Eraser',
       icon: 'eraser.svg',
     }]],
-    selectedTool: 'pencil',
+    selectedTool: 'Pencil',
   };
   @tracked selectedTool = null;
   @tracked board = null;
@@ -39,9 +39,10 @@ export default class ManagerService extends Service {
     }
   }
   @action switchDrawingTool(tool){
-    console.log('dhukse')
     this.selectedTool && this.selectedTool.onDestroy();
     this.selectedTool = null;
+    set(this.board_config, 'selectedTool',tool)
+    this.startDrawingEngine();
 
   }
   @action stopDrawingEngine(){

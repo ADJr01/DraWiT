@@ -39,6 +39,7 @@ export default class Pencil{
       this.Canvas.addEventListener('mousemove',e=>this.canvasOnMouseMove(e));
       this.Canvas.addEventListener('mouseup',e=>this.canvasOnClickRelease(e));
       this.Canvas.addEventListener('mouseout',e=>this.canvasOnClickRelease(e));
+      this.Canvas.addEventListener('contextMenu',e=>this.canvasOnClickRelease(e));
     }
 
 
@@ -49,12 +50,13 @@ export default class Pencil{
     //remove event listeners
     if(!this.Canvas ) return  -1;
     if(this.Device==='mouse') {
-      this.Canvas.removeEventListener('click', e => this.canvasOnClick(e));
+      this.Canvas.removeEventListener('mousedown', e => this.canvasOnClick(e));
       this.Canvas.removeEventListener('mousemove', e => this.canvasOnMouseMove(e));
       this.Canvas.removeEventListener('mouseup', e => this.canvasOnClickRelease(e));
-      this.Canvas = null;
-
-      return null;
+      this.Canvas.removeEventListener('mouseout',e=>this.canvasOnClickRelease(e));
+      this.Canvas.removeEventListener('contextMenu',e=>this.canvasOnClickRelease(e));
     }
+    this.Canvas = null;
+    return null;
   }
 }
