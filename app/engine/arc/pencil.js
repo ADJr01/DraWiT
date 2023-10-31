@@ -18,9 +18,18 @@ export default class Pencil{
     const setStrokeWidth = (strokeWidth)=>this.editables.strokeWidth = strokeWidth;
     const setLineCap = (lineCap)=>this.editables.lineCap = lineCap;
     return {
-      setColor,
-      setStrokeWidth,
-      setLineCap
+      prop1:{
+        propType: 'color',
+        func: setColor
+      },
+      prop2:{
+        propType: 'range',
+        func: setStrokeWidth
+      },
+      prop3:{
+        propType: 'select',
+        func: setLineCap
+      }
     }
   }
   hasEditable(){

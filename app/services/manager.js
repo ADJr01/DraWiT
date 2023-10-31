@@ -16,7 +16,7 @@ export default class ManagerService extends Service {
     },
       {
       name: 'Eraser',
-      icon: 'eraser.svg',
+      icon: 'eraser.png',
     }],
     selectedTool: 'Pencil',
   };

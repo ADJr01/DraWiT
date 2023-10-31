@@ -9,8 +9,8 @@
           <tr>
           {{#each tools as |tool|}}
             <td >
-              <div style="cursor: pointer!important;" class="w-100 d-flex flex-column flex-nowrap" {{on 'click' (fn this.onSwitchTool tool.name)}}>
-                <span>{{tool.icon}}</span>
+              <div style="cursor: pointer!important;" class="w-100 d-flex flex-column flex-nowrap align-items-center" {{on 'click' (fn this.onSwitchTool tool.name)}}>
+                <img src="/asset/{{tool.icon}}" width="16" alt="{{tool.name}}">
                 <span>{{tool.name}}</span>
               </div>
             </td>
