@@ -28,7 +28,7 @@ export default class Eraser{
   onEraserMove(event){
     if(!this.Canvas || !this.isClicked) return;
     const {x,y} = getCoords(event,this.Canvas);
-    this.Ctx.clearRect(x,y,this.Canvas.width,this.Canvas.height);
+    this.Ctx.clearRect(x,y,10,10);
   }
   onMouseRelease(event){
     if(!this.Canvas)return;

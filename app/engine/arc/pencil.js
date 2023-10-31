@@ -7,6 +7,24 @@ export default class Pencil{
     this.Canvas = canvas;
     this.Ctx = this.Canvas.getContext('2d');
     this.isClicked = false
+    this.editables = {
+      color: '#00ff2a',
+      strokeWidth: 2,
+      lineCap: 'round',
+    }
+  }
+  getEditAbles(){
+    const setColor = (color)=>this.editables.color = color;
+    const setStrokeWidth = (strokeWidth)=>this.editables.strokeWidth = strokeWidth;
+    const setLineCap = (lineCap)=>this.editables.lineCap = lineCap;
+    return {
+      setColor,
+      setStrokeWidth,
+      setLineCap
+    }
+  }
+  hasEditable(){
+    return typeof this.editables === 'object';
   }
   canvasOnClick(event){
     if(!this.Canvas)return
@@ -24,10 +42,10 @@ export default class Pencil{
     if(!this.isClicked || !this.Canvas) return;
     const {x,y} = getCoords(event,this.Canvas);
     this.Ctx.lineTo(x,y);
-    this.Ctx.strokeStyle = '#ffffff';
-    this.Ctx.lineCap = 'round';
-    this.Ctx.lineJoin = 'round';
-    this.Ctx.lineWidth = '1';
+    this.Ctx.strokeStyle = this.editables.color;
+    this.Ctx.lineCap = this.editables.lineCap;
+    this.Ctx.lineJoin = this.editables.lineCap;
+    this.Ctx.lineWidth = this.editables.strokeWidth;
     this.Ctx.stroke();
   }
 
@@ -59,4 +77,6 @@ export default class Pencil{
     this.Canvas = null;
     return null;
   }
+
+
 }

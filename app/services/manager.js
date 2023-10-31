@@ -10,14 +10,14 @@ export default class ManagerService extends Service {
     boardHeight:0,
     toolPanelWidth: 0,
     toolPanelHeight: 0,
-    toolSet: [[{
+    toolSet: [{
       name: 'Pencil',
       icon: 'pencil.svg',
     },
       {
       name: 'Eraser',
       icon: 'eraser.svg',
-    }]],
+    }],
     selectedTool: 'Pencil',
   };
   @tracked selectedTool = null;

@@ -60,7 +60,17 @@ export default class BoardComponent extends Component {
   }
 
   get ToolsSet(){
-    return this.manager.board_config.toolSet;
+    function createSubArrays(arr) {
+      const result = [];
+
+      for (let i = 0; i < arr.length; i += 2) {
+        const subArray = [arr[i], arr[i + 1]].filter(Boolean); // filter out undefined for odd-length arrays
+        result.push(subArray);
+      }
+
+      return result;
+    }
+    return createSubArrays(this.manager.board_config.toolSet);
   }
 
 }
