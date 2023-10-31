@@ -21,7 +21,7 @@ export default class Eraser{
     }
 
   }
-  onMousePress(event){
+  onMousePress(){
     if(!this.Canvas)return;
     this.isClicked = true;
   }
@@ -30,7 +30,7 @@ export default class Eraser{
     const {x,y} = getCoords(event,this.Canvas);
     this.Ctx.clearRect(x,y,10,10);
   }
-  onMouseRelease(event){
+  onMouseRelease(){
     if(!this.Canvas)return;
     this.isClicked = false;
   }
