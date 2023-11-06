@@ -1,5 +1,5 @@
 'use strict';
-import StrokeRecord from "./src/StrokeRecord";
+import StrokeRecord from './src/StrokeRecord';
 export default {
-  StrokeCache: StrokeRecord
-}
+  StrokeCache: StrokeRecord,
+};

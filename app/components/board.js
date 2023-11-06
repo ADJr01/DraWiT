@@ -6,41 +6,45 @@ export default class BoardComponent extends Component {
   @service manager;
   @tracked board = null;
 
-  @action detectDevice(){
+  @action detectDevice() {
     // Check if the device supports touch events
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    const isTouchDevice =
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0;
 
-// Check if the device supports mouse events
+    // Check if the device supports mouse events
     const isMouseDevice = 'onmousemove' in window;
 
     if (isTouchDevice) {
-      set(this.manager.board_config, 'deviceType', 'touch')
+      set(this.manager.board_config, 'deviceType', 'touch');
     } else if (isMouseDevice) {
-      set(this.manager.board_config, 'deviceType', 'mouse')
+      set(this.manager.board_config, 'deviceType', 'mouse');
     } else {
-      throw new Error('BoardComponent::detectDevice::=> device detection failed.device is not supported');
+      throw new Error(
+        'BoardComponent::detectDevice::=> device detection failed.device is not supported'
+      );
     }
     return true;
-
   }
 
-  @action initDrawer(board){
+  @action initDrawer(board) {
     const device = this.detectDevice();
-    if(!device) {
+    if (!device) {
       board = null;
-      document.removeChild(document.getElementsByTagName("body")[0]);
+      document.removeChild(document.getElementsByTagName('body')[0]);
       return -1;
     }
     this.board = board;
     this.onResize();
     this.manager.__init__(this.board);
-    window.addEventListener('resize', _=>this.onResize());
+    window.addEventListener('resize', (_) => this.onResize());
   }
-  @action onSwitchTool(tool){
+  @action onSwitchTool(tool) {
     this.manager.switchDrawingTool(tool);
   }
 
-  @action onResize(){
+  @action onResize() {
     const TotalWidth = window.innerWidth;
     const TotalHeight = window.innerHeight;
     //set board canvas width to 80% of total width
@@ -59,7 +63,7 @@ export default class BoardComponent extends Component {
     this.board.height = this.manager.board_config.boardHeight;
   }
 
-  get ToolsSet(){
+  get ToolsSet() {
     function createSubArrays(arr) {
       const result = [];
 
@@ -72,5 +76,4 @@ export default class BoardComponent extends Component {
     }
     return createSubArrays(this.manager.board_config.toolSet);
   }
-
 }

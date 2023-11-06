@@ -121,6 +121,21 @@ button::-moz-focus-inner {
 
 
 .tools_panel{
+  display: flex;
+  justify-content: flex-start;
 
 }
+
+
+input[type="color"] {
+  border: none!important;
+  border-radius: 50%!important;
+  background-color: transparent!important;
+  outline: none;
+  padding: 4px;
+  width: 38px;
+  height: 38px;
+}
+
+
 
