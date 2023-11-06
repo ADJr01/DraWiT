@@ -1,10 +1,8 @@
 <div style="width: 300px;height: 150px" class="position-relative">
   <div style="width: 40px!important;height: 40px!important;background: {{this.pickedColor}};padding: 6px;border-radius: 50%;cursor: pointer;" {{on 'click' this.switchColorPicker}}></div>
-  {{#if this.showPicker}}
-    <div style="background: #50577A" class="w-100 h-100 p-2">
-      <input style="border: none!important;border-radius: 50%;visibility: hidden" id="drawIT_color_prop" type="color" {{did-insert this.openPicker}}>
-
+    <div  class="color-picker">
+      <label for="drawIT_color_prop"></label>
+      <input id="drawIT_color_prop" type="color"   >
     </div>
-  {{/if}}
 
 </div>
